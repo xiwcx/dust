@@ -1,0 +1,23 @@
+{
+  "name": "dust-api",
+  "version": "1.0.0",
+  "description": "The API to power dust audiozine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xiwcx/dust-api.git"
+  },
+  "author": "Welch Canavan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiwcx/dust-api/issues"
+  },
+  "homepage": "https://github.com/xiwcx/dust-api",
+  "dependencies": {
+    "express": "^4.10.6",
+    "mongoskin": "^1.4.4"
+  }
+}
