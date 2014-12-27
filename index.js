@@ -9,20 +9,16 @@ app.get('/', function (req, res) {
 })
 
 app.get('/episodes', function(req, res) {
-  db.collection( "episodes" ).find( { $query: {}, $orderby: { id : -1 } } )
+  var limit = parseInt( req.query.limit ? req.query.limit : 0 ),
+      skip = parseInt( req.query.skip ? req.query.skip : 0 );
+
+  db.collection( "episodes" )
+    .find( { $query: {}, $orderby: { id : -1 } } )
+    .limit( limit )
+    .skip( skip )
     .toArray(function(e, episodes) {
-    var limit = req.query.limit,
-        offset = req.query.offset,
-        length = episodes.length;
-
-    if( offset >= 0 ) {
-      episodes = episodes.slice( offset, length );
-    } else if( limit >= 0 ) {
-      episodes = episodes.slice( 0, limit );
-    }
-
-    res.send( episodes )
-  })
+      res.send( episodes )
+    })
 })
 
 var server = app.listen(3000, function () {
