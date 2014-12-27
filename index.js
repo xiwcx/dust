@@ -9,13 +9,11 @@ app.get('/', function (req, res) {
 })
 
 app.get('/episodes', function(req, res) {
-  var limit = parseInt( req.query.limit ? req.query.limit : 0 ),
-      skip = parseInt( req.query.skip ? req.query.skip : 0 );
-
   db.collection( "episodes" )
-    .find( { $query: {}, $orderby: { id : -1 } } )
-    .limit( limit )
-    .skip( skip )
+    .find( {}, { _id:0 } )
+    .sort( { id : -1 } )
+    .limit( parseInt( req.query.limit ? req.query.limit : 0 ) )
+    .skip( parseInt( req.query.skip ? req.query.skip : 0 ) )
     .toArray(function(e, episodes) {
       res.send( episodes )
     })
