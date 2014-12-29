@@ -1,17 +1,18 @@
 var express = require('express'),
-    app = express();
+    app = express(),
+    subdomain = require('express-subdomain');
 
 // Route Path
 
 app.get('/', function (req, res) {
-  res.send( db )
+  res.send( "hey" )
 })
 
 // API Paths
 
 var episodes = require( './routes/api/episodes' );
 
-app.use( '/episodes', episodes );
+app.use( '/episodes', subdomain('api', episodes) );
 
 // Server Definition
 

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/xiwcx/dust-api",
   "dependencies": {
     "express": "^4.10.6",
+    "express-subdomain": "^1.0.2",
     "mongoskin": "^1.4.4"
   }
 }
