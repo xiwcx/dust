@@ -20,5 +20,10 @@
     "express": "^4.10.6",
     "express-subdomain": "^1.0.2",
     "mongoskin": "^1.4.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-express": "^0.1.2",
+    "require-dir": "^0.1.0"
   }
 }

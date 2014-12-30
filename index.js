@@ -5,7 +5,7 @@ var express = require('express'),
 // Route Path
 
 app.get('/', function (req, res) {
-  res.send( "hey" )
+  res.send( "hello, world" )
 })
 
 // API Paths
