@@ -2,10 +2,15 @@ var express = require('express'),
     app = express(),
     subdomain = require('express-subdomain');
 
+// Server Configuration
+
+app.set('views', './views')
+app.set('view engine', 'jade')
+
 // Route Path
 
 app.get('/', function (req, res) {
-  res.send( "hello, world" )
+  res.render('index', { title: 'Hey', message: 'Hello there!'});
 })
 
 // API Paths

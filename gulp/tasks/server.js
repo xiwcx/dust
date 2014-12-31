@@ -4,9 +4,9 @@ var gulp = require('gulp'),
 gulp.task('server', function () {
   // Start the server at the beginning of the task
   server.run({
-    file: 'index.js'
+    file: 'app.js'
   });
 
   // Restart the server when file changes
-  gulp.watch(['index.js', 'routes/**/*.js'], [server.run]);
+  gulp.watch(['app.js', 'routes/**/*.js', 'views/**/*.jade'], [server.run]);
 });
