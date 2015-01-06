@@ -3,4 +3,14 @@ html
   title!= title
 
 body
-  h1!= message
+  header
+    h1 Dust Audio Zine
+    nav
+      ul
+        li
+          a(href='/') Main
+        li
+          a(href='/about') About
+  main
+    p this is the #{title} content
+  footer (C) never

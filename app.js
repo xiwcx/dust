@@ -9,9 +9,13 @@ app.set('view engine', 'jade')
 
 // Route Path
 
-app.get('/', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'Hello there!'});
-})
+app
+  .get('/', function (req, res) {
+    res.render('index', { title: 'main'});
+  })
+  .get('/about', function (req, res) {
+    res.render('index', { title: 'about'});
+  })
 
 // API Paths
 
