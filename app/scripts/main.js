@@ -1,3 +1,9 @@
-var AboutView = require('./views/about');
+var Backbone = require('backbone');
+    $ = require('jquery');
 
-var aboutView = new AboutView();
+Backbone.$ = $;
+
+var Router = require('./router');
+var router = new Router();
+
+Backbone.history.start({pushState: true});

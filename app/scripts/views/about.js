@@ -10,6 +10,6 @@ module.exports = Backbone.View.extend({
   },
 
   render: function(){
-    $('main').prepend('<p>wooooooooooooooo</p>');
+    $('main').prepend('<p>test</p>');
   }
 });
