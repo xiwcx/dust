@@ -16,6 +16,7 @@ app
   .get('/about', function (req, res) {
     res.render('index', { title: 'about'});
   })
+  .use(express.static('public'))
 
 // API Paths
 

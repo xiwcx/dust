@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
     mongoskin = require('mongoskin'),
+    _ = require('lodash'),
     db = mongoskin.db('mongodb://localhost:27017/dust', {safe:true});
 
 // The base episode route allows for collections of episodes to be returned
@@ -25,7 +26,7 @@ router.route('/:id')
   .get( function(req, res){
     var episodeNum = parseInt( req.params.id, 10 );
 
-    if ( typeof episodeNum === "number" && !isNaN( episodeNum ) ) {
+    if ( _.isNumber( episodeNum ) ) {
       db.collection( "episodes" )
         .findOne( { id: episodeNum }, function(e, episode) {
           if( !episode) {
@@ -38,7 +39,5 @@ router.route('/:id')
       res.status( 404 ).json( 'Not a number' )
     }
   })
-
-
 
 module.exports = router;
