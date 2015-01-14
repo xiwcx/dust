@@ -12,7 +12,7 @@ router.route( '/' )
   .get( function(req, res) {
     db.collection( "episodes" )
       .find( {}, { _id: 0 } )
-      .sort( { id : -1 } )
+      .sort( { num: -1 } )
       .limit( parseInt( req.query.limit ? req.query.limit : 0, 10 ) )
       .skip( parseInt( req.query.skip ? req.query.skip : 0, 10 ) )
       .toArray(function(e, episodes) {
@@ -28,8 +28,8 @@ router.route('/:id')
 
     if ( _.isNumber( episodeNum ) ) {
       db.collection( "episodes" )
-        .findOne( { id: episodeNum }, function(e, episode) {
-          if( !episode) {
+        .findOne( { num: episodeNum }, function(e, episode) {
+          if( !episode ) {
             res.status( 404 ).json( 'Episode does not exist' )
           } else {
             res.json( episode )
