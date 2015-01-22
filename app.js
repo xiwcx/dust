@@ -7,6 +7,14 @@ var express = require('express'),
 app.set('views', './views')
 app.set('view engine', 'jade')
 
+// API Paths
+
+var episodes = require( './routes/api/episodes' );
+
+app
+  .use( '/episodes', subdomain('api', episodes) );
+
+
 // Route Path
 
 app
@@ -16,13 +24,31 @@ app
   .get('/about', function (req, res) {
     res.render('index', { title: 'about'});
   })
-  .use(express.static('public'))
+  .get('*', function(req, res, next) {
+    next();
+  })
+  .use(express.static('public'));
 
-// API Paths
+// 404
 
-var episodes = require( './routes/api/episodes' );
+app.use(function(req, res, next){
+  res.status(404);
 
-app.use( '/episodes', subdomain('api', episodes) );
+  // respond with html page
+  if (req.accepts('html')) {
+    res.render('404', { url: req.url });
+    return;
+  }
+
+  // respond with json
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
+
+  // default to plain-text. send()
+  res.type('txt').send('Not found');
+});
 
 // Server Definition
 
@@ -33,4 +59,4 @@ var server = app.listen(3003, function () {
 
   console.log('Example app listening at http://%s:%s', host, port)
 
-})
+});

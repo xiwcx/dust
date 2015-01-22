@@ -12,12 +12,12 @@ module.exports = Backbone.Router.extend({
 
   home: function () {
     console.log('home');
-    $('main').replaceWith('<p>This is the home page.</p>');
+    $('main').html('<p>This is the home page.</p>');
   },
 
   about: function () {
     // new aboutView({el: $('main')});
     console.log('about');
-    $('main').replaceWith('<p>This is the about page.</p>');
+    $('main').html('<p>This is the about page.</p>');
   }
 });

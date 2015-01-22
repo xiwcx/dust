@@ -5,11 +5,12 @@ Backbone.$ = $;
 
 module.exports = Backbone.View.extend({
   initialize: function(){
-    console.log('wuuut')
+    console.log('Yr on the about page')
     this.render();
   },
 
   render: function(){
-    $('main').prepend('<p>test</p>');
+    this.$el.html(this.template(this.model.attributes));
+    return this;
   }
 });
