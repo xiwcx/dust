@@ -16,9 +16,9 @@ router.route( '/' )
       .limit( parseInt( req.query.limit ? req.query.limit : 0, 10 ) )
       .skip( parseInt( req.query.skip ? req.query.skip : 0, 10 ) )
       .toArray(function(e, episodes) {
-        res.json( episodes )
-      })
-  })
+        res.json( episodes );
+      });
+  });
 
 // The ID route allows for single episodes to be returned
 
@@ -30,14 +30,14 @@ router.route('/:id')
       db.collection( "episodes" )
         .findOne( { num: episodeNum }, function(e, episode) {
           if( !episode ) {
-            res.status( 404 ).json( 'Episode does not exist' )
+            res.status( 404 ).json( 'Episode does not exist' );
           } else {
-            res.json( episode )
+            res.json( episode );
           }
-        })
+        });
     } else {
-      res.status( 404 ).json( 'Not a number' )
+      res.status( 404 ).json( 'Not a number' );
     }
-  })
+  });
 
 module.exports = router;

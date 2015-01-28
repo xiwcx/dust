@@ -5,10 +5,10 @@ var browserify = require('browserify'),
 
 // using vinyl-source-stream:
 gulp.task('browserify', function() {
-  var bundleStream = browserify('./app/scripts/main.js').bundle()
+  var bundleStream = browserify('./app/scripts/main.js').bundle();
 
   bundleStream
     .pipe(source('main.js'))
     .pipe(rename('scripts.js'))
-    .pipe(gulp.dest('public'))
-})
+    .pipe(gulp.dest('public'));
+});

@@ -4,8 +4,8 @@ var express = require('express'),
 
 // Server Configuration
 
-app.set('views', './views')
-app.set('view engine', 'jade')
+app.set('views', './views');
+app.set('view engine', 'jade');
 
 // API Paths
 
@@ -54,9 +54,9 @@ app.use(function(req, res, next){
 
 var server = app.listen(3003, function () {
 
-  var host = server.address().address
-  var port = server.address().port
+  var host = server.address().address;
+  var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port)
+  console.log('Example app listening at http://%s:%s', host, port);
 
 });

@@ -5,7 +5,7 @@ Backbone.$ = $;
 
 module.exports = Backbone.View.extend({
   initialize: function(){
-    console.log('Yr on the about page')
+    console.log('Yr on the about page');
     this.render();
   },
 
