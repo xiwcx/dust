@@ -26,7 +26,7 @@ router.route('/:id')
   .get( function(req, res){
     var episodeNum = parseInt( req.params.id, 10 );
 
-    if ( _.isNumber( episodeNum ) ) {
+    if ( !_.isNaN( episodeNum ) && _.isNumber( episodeNum ) ) {
       db.collection( "episodes" )
         .findOne( { num: episodeNum }, function(e, episode) {
           if( !episode ) {
