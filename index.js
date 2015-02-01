@@ -12,7 +12,7 @@ app.set('view engine', 'jade');
 var episodes = require( './routes/api/episodes' );
 
 app
-  .use( '/episodes', subdomain('api', episodes) );
+  .use( '/api/episodes', episodes );
 
 
 // Route Path

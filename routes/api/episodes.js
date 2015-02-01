@@ -36,7 +36,7 @@ router.route('/:id')
           }
         });
     } else {
-      res.status( 404 ).json( 'Not a number' );
+      res.status( 404 ).json( 'Episode requests need to be a number' );
     }
   });
 
