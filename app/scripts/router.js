@@ -1,13 +1,16 @@
 var $ = require('jquery'),
-    Backbone = require('backbone');
+    Backbone = require('backbone'),
+    Episode = require('./views/episode');
+    Episodes = require('./views/episodes');
 
 Backbone.$ = $;
 
 module.exports = Backbone.Router.extend({
 
   routes: {
-    "": "home",
-    "about": "about"
+    "": "episodes",
+    "about": "about",
+    "episode/:id": "episode"
   },
 
   home: function () {
@@ -16,8 +19,16 @@ module.exports = Backbone.Router.extend({
   },
 
   about: function () {
-    // new aboutView({el: $('main')});
     console.log('about');
     $('main').html('<p>This is the about page.</p>');
+  },
+
+  episode: function( id ) {
+    episode = new Episode( {id: id} );
+  },
+
+  episodes: function() {
+    console.log( "test" );
+    episodes = new Episodes();
   }
 });

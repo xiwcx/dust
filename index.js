@@ -24,6 +24,12 @@ app
   .get('/about', function (req, res) {
     res.render('index', { title: 'about'});
   })
+  .get('/episodes', function (req, res) {
+    res.render('index', { title: 'episodes'});
+  })
+  .get('/episode/*', function (req, res) {
+    res.render('index', { title: 'episode'});
+  })
   .get('*', function(req, res, next) {
     next();
   })
