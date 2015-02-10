@@ -1,7 +1,9 @@
 var $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
-    model = require('../models/episode.js');
+    Handlebars = require('handlebars'),
+    model = require('../models/episode.js'),
+    template = require('../../templates/episode.hbs');
 
 module.exports = Backbone.View.extend({
   initialize: function( options ) {
@@ -15,14 +17,12 @@ module.exports = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html( this.template( this.serialize() ) );
+    this.$el.html( template( this.serialize() ) );
   },
 
   serialize: function(){
     return this.model.attributes;
   },
-
-  template: _.template( "<h2>Episode <%= num %></h2><ul><li>title: <%= title %></li><li>description: <%= description %></li></ul>" ),
 
   el: "main"
 });
