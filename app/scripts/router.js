@@ -13,11 +13,6 @@ module.exports = Backbone.Router.extend({
     "episode/:id": "episode"
   },
 
-  home: function () {
-    console.log('home');
-    $('main').html('<p>This is the home page.</p>');
-  },
-
   about: function () {
     console.log('about');
     $('main').html('<p>This is the about page.</p>');

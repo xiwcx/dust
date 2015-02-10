@@ -1,9 +1,10 @@
 var $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
-    model = require('../models/episode'),
+    Collection = require('../collections/episodes'),
     episode = require('../views/episode'),
-    Collection = require('../collections/episodes');
+    model = require('../models/episode'),
+    template = require('../../templates/episodes.hbs');
 
 module.exports = Backbone.View.extend({
   initialize: function( options ) {
@@ -17,10 +18,8 @@ module.exports = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html( this.template() );
+    this.$el.html( template( this.collection.toJSON() ) );
   },
-
-  template: _.template( "<h2>all the episodes</h2><ul></ul>" ),
 
   el: "main"
 });

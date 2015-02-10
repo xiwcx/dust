@@ -1,0 +1,14 @@
+<h2>All Episodes</h2>
+
+<ul>
+  {{#each this}}
+  <li>
+    <h3><a href="/episode/{{ num }}">Episode {{ num }}</a></h3>
+
+    <ul>
+      <li><strong>title:</strong> {{ title }}</li>
+      <li><strong>description:</strong> {{ description }}</li>
+    </ul>
+  </li>
+  {{/each}}
+</ul>
