@@ -18,7 +18,11 @@ module.exports = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html( template( this.collection.toJSON() ) );
+    this.$el.html( template( this.serialize() ) );
+  },
+
+  serialize: function() {
+    return { episodes: this.collection.toJSON() };
   },
 
   el: "main"
