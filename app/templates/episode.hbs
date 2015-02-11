@@ -1,6 +1,15 @@
-<h2>Episode {{ num }}</h2>
-<ul>
-  <li><strong>image:</strong> <img src="{{ image }}" /></li>
-  <li><strong>title:</strong> {{ title }}</li>
-  <li><strong>description:</strong> {{ description }}</li>
-</ul>
+<article class="">
+  <header>
+    <img src="{{ image }}" />
+    <h2>Episode {{ num }}: {{ title }}</h2>
+    <button name="button" style="display:block">play</button>
+  </header>
+  <main>
+    <p>
+      {{ description }}
+    </p>
+  </main>
+  <footer>
+    <a href="http://soundcloud.com">Powered by Soundcloud</a>
+  </footer>
+</article>

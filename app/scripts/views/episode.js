@@ -24,5 +24,5 @@ module.exports = Backbone.View.extend({
     return this.model.attributes;
   },
 
-  el: "main"
+  el: "#JS_main"
 });

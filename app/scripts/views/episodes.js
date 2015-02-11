@@ -25,5 +25,5 @@ module.exports = Backbone.View.extend({
     return { episodes: this.collection.toJSON() };
   },
 
-  el: "main"
+  el: "#JS_main"
 });
