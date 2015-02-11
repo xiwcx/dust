@@ -1,6 +1,6 @@
 var $ = require('jquery'),
     Backbone = require('backbone'),
-    Episode = require('./views/episode');
+    Episode = require('./views/episode'),
     Episodes = require('./views/episodes');
 
 Backbone.$ = $;
@@ -13,10 +13,15 @@ module.exports = Backbone.Router.extend({
   },
 
   episode: function( id ) {
-    episode = new Episode( {id: id} );
+    episode = new Episode( {
+      id: id,
+      el: "#JS_main"
+    });
   },
 
   episodes: function() {
-    episodes = new Episodes();
+    episodes = new Episodes({
+      el: "#JS_main"
+    });
   }
 });

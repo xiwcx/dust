@@ -1,5 +1,6 @@
-var Backbone = require('backbone');
-    $ = require('jquery');
+var Backbone = require('backbone'),
+    $ = require('jquery'),
+    Player = require('./views/player');
 
 Backbone.$ = $;
 
@@ -11,6 +12,7 @@ $(document).on('click', 'a[href^="/"]', function(e) {
 });
 
 var Router = require('./router');
-var router = new Router();
+router = new Router();
+player = new Player({el: "#JS_player"});
 
 Backbone.history.start({pushState: true});

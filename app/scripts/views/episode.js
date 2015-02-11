@@ -22,7 +22,5 @@ module.exports = Backbone.View.extend({
 
   serialize: function(){
     return this.model.attributes;
-  },
-
-  el: "#JS_main"
+  }
 });
