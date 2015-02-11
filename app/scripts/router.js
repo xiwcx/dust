@@ -9,13 +9,7 @@ module.exports = Backbone.Router.extend({
 
   routes: {
     "": "episodes",
-    "about": "about",
     "episode/:id": "episode"
-  },
-
-  about: function () {
-    console.log('about');
-    $('main').html('<p>This is the about page.</p>');
   },
 
   episode: function( id ) {
@@ -23,7 +17,6 @@ module.exports = Backbone.Router.extend({
   },
 
   episodes: function() {
-    console.log( "test" );
     episodes = new Episodes();
   }
 });

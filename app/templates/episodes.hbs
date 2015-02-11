@@ -3,12 +3,9 @@
 <ul>
   {{#each episodes}}
   <li>
-    <h3><a href="/episode/{{ num }}">Episode {{ num }}</a></h3>
+    <h3><a href="/episode/{{ num }}">Episode {{ num }}: {{ title }}</a></h3>
 
-    <ul>
-      <li><strong>title:</strong> {{ title }}</li>
-      <li><strong>description:</strong> {{ description }}</li>
-    </ul>
+    <img src="{{ image }}">
   </li>
   {{/each}}
 </ul>
