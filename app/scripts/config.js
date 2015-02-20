@@ -1,3 +1,4 @@
 module.exports = {
-  urlRoot: '/api'
+  siteTitle: "Dust Audio Zine — ",
+  urlRoot: "/api"
 };

@@ -1,5 +1,6 @@
 var $ = require('jquery'),
     Backbone = require('backbone'),
+    config = require('./config'),
     Episode = require('./views/episode'),
     Episodes = require('./views/episodes');
 
@@ -17,11 +18,15 @@ module.exports = Backbone.Router.extend({
       id: id,
       el: "#JS_main"
     });
+
+    document.title = config.siteTitle + "Episode " + id;
   },
 
   episodes: function() {
     episodes = new Episodes({
       el: "#JS_main"
     });
+
+    document.title = config.siteTitle + "Home";
   }
 });

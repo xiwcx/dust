@@ -3,8 +3,7 @@ var $ = require('jquery'),
     Backbone = require('backbone'),
     Collection = require('../collections/episodes'),
     episode = require('../views/episode'),
-    model = require('../models/episode'),
-    template = require('../../templates/episodes.hbs');
+    EpisodePreview = require('../views/episode-preview');
 
 module.exports = Backbone.View.extend({
   initialize: function( options ) {
@@ -18,10 +17,13 @@ module.exports = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html( template( this.serialize() ) );
-  },
+    var models = this.collection.models;
 
-  serialize: function() {
-    return { episodes: this.collection.toJSON() };
+    this.$el.html( '<h2>All Episodes</h2><ul id="JS_episodes"></ul>' );
+
+    for ( var i = 0; i < models.length; i++  ) {
+      view = new EpisodePreview( { model: models[i], el: '#JS_episodes' } );
+      view.render();
+    }
   }
 });

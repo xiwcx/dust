@@ -6,7 +6,7 @@ var browserify = require('browserify'),
 
 // using vinyl-source-stream:
 gulp.task('browserify', function() {
-  browserify('./app/scripts/main.js')
+  browserify('./app/scripts/main.js', {debug: !gulp.env.production})
     .transform(hbsfy)
     .bundle()
     .pipe(source('main.js'))
