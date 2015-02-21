@@ -5,10 +5,17 @@ var $ = require('jquery'),
     template = require('../../templates/episode-preview.hbs');
 
 module.exports = Backbone.View.extend({
+  events: {
+    "click .JS_initTrack": "initTrack"
+  },
+
   initialize: function( options ) {
     var _this = this;
-
     this.model = options.model;
+  },
+
+  initTrack: function() {
+    Backbone.trigger( 'initTrack', this.model.attributes.scTrackID );
   },
 
   render: function(){
