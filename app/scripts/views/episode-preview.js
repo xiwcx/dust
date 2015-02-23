@@ -5,13 +5,14 @@ var $ = require('jquery'),
     template = require('../../templates/episode-preview.hbs');
 
 module.exports = Backbone.View.extend({
+  tagName: 'li',
   events: {
     "click .JS_initTrack": "initTrack"
   },
 
   initialize: function( options ) {
-    var _this = this;
     this.model = options.model;
+    this.render();
   },
 
   initTrack: function() {
@@ -19,7 +20,7 @@ module.exports = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.append( template( this.serialize() ) );
+    this.$el.html( template( this.serialize() ) );
   },
 
   serialize: function(){

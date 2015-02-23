@@ -29,6 +29,7 @@ module.exports = Backbone.View.extend({
     SC.stream("/tracks/" + trackID, function(sound){
       sound.play();
     });
+    console.log( "now playing: " + trackID );
   },
 
   killAll: function() {
