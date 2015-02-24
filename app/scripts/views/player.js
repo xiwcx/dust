@@ -26,10 +26,16 @@ module.exports = Backbone.View.extend({
   },
 
   initTrack: function( trackID ) {
-    SC.stream("/tracks/" + trackID, function(sound){
-      sound.play();
-    });
-    console.log( "now playing: " + trackID );
+    if ( this.model.attributes.scID !== trackID ) {
+      var smObject = SC.stream("/tracks/" + trackID, function(sound){
+        sound.play();
+      });
+      this.model.set( {scID: trackID, smID: smObject.sID} );
+
+      // console.log( "scID is: " + this.model.attributes.scID );
+      // console.log( "smID is: " + this.model.attributes.smID );
+    }
+
   },
 
   killAll: function() {
