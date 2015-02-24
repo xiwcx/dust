@@ -7,7 +7,7 @@ var $ = require('jquery'),
 
 module.exports = Backbone.View.extend({
   events: {
-    "click .JS_killall": "killAll"
+    "click #JS_toggle-pause": "togglePause"
   },
 
   initialize: function( options ) {
@@ -27,18 +27,31 @@ module.exports = Backbone.View.extend({
 
   initTrack: function( trackID ) {
     if ( this.model.attributes.scID !== trackID ) {
+      if ( this.model.attributes.smID ) {
+        soundManager.destroySound( this.model.attributes.smID );
+        console.log( "killed: " + this.model.attributes.smID );
+      }
+
       var smObject = SC.stream("/tracks/" + trackID, function(sound){
         sound.play();
       });
-      this.model.set( {scID: trackID, smID: smObject.sID} );
 
-      // console.log( "scID is: " + this.model.attributes.scID );
-      // console.log( "smID is: " + this.model.attributes.smID );
+      this.model.set({
+        paused: false,
+        scID: trackID,
+        smID: smObject.sID
+      });
     }
 
   },
 
-  killAll: function() {
-    SC.streamStopAll();
+  togglePause: function() {
+    if( this.model.attributes.paused ) {
+      this.model.set( {paused: false} );
+      soundManager.play( this.model.attributes.smID );
+    } else {
+      this.model.set( {paused: true} );
+      soundManager.pause( this.model.attributes.smID );
+    }
   }
 });

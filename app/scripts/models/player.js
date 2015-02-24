@@ -3,6 +3,7 @@ var $ = require('jquery'),
 
 module.exports = Backbone.Model.extend({
   defaults: {
-    "streamingReady": false
+    "streamingReady": false,
+    "paused": true
   }
 });
