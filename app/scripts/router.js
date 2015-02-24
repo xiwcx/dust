@@ -14,7 +14,7 @@ module.exports = Backbone.Router.extend({
   },
 
   episode: function( id ) {
-    episode = new Episode( {
+    var episode = new Episode( {
       id: id,
       el: "#JS_main"
     });
@@ -23,7 +23,7 @@ module.exports = Backbone.Router.extend({
   },
 
   episodes: function() {
-    episodes = new Episodes({
+    var episodes = new Episodes({
       el: "#JS_main"
     });
 

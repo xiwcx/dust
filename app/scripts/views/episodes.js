@@ -20,7 +20,7 @@ module.exports = Backbone.View.extend({
   },
 
   renderItem: function( model ) {
-    view = new EpisodePreview( { model: model } );
+    var view = new EpisodePreview( { model: model } );
     $('#JS_episodes').append( view.el );
   }
 });

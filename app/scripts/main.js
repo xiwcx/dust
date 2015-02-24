@@ -11,8 +11,8 @@ $(document).on('click', 'a[href^="/"]', function(e) {
   Backbone.history.navigate(href, { trigger: true });
 });
 
-var Router = require('./router');
-router = new Router();
-player = new Player({el: "#JS_player"});
+var Router = require('./router'),
+    router = new Router(),
+    player = new Player({el: "#JS_player"});
 
 Backbone.history.start({pushState: true});

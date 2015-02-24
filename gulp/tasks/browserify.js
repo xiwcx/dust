@@ -1,4 +1,5 @@
-var browserify = require('browserify'),
+var babelify = require("babelify"),
+    browserify = require('browserify'),
     gulp = require('gulp'),
     hbsfy = require('hbsfy'),
     rename = require("gulp-rename"),
@@ -8,6 +9,7 @@ var browserify = require('browserify'),
 gulp.task('browserify', function() {
   browserify('./app/scripts/main.js', {debug: !gulp.env.production})
     .transform(hbsfy)
+    .transform(babelify)
     .bundle()
     .pipe(source('main.js'))
     .pipe(rename('scripts.js'))
