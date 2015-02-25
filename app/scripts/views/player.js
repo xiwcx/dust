@@ -26,20 +26,33 @@ module.exports = Backbone.View.extend({
   },
 
   initTrack: function( trackID ) {
+    var _this = this;
+
     if ( this.model.attributes.scID !== trackID ) {
       if ( this.model.attributes.smID ) {
         soundManager.destroySound( this.model.attributes.smID );
         console.log( "killed: " + this.model.attributes.smID );
       }
 
-      var smObject = SC.stream("/tracks/" + trackID, function(sound){
-        sound.play();
+      var smObject = new Promise( function(resolve) {
+        resolve( SC.stream( "/tracks/" + trackID ) );
       });
 
-      this.model.set({
-        paused: false,
-        scID: trackID,
-        smID: smObject.sID
+      smObject.then( function( object ){
+        _this.model.set({
+          paused: false,
+          scID: trackID,
+          smID: object.sID
+        });
+      }).then( function() {
+        soundManager.play( _this.model.attributes.smID, {
+          whileplaying: function() {
+            $( '#JS_player-progress').attr( 'value', (
+              soundManager.sounds[ _this.model.attributes.smID ].position /
+              soundManager.sounds[ _this.model.attributes.smID ].durationEstimate)
+              * 100 );
+          }
+        });
       });
     }
 
