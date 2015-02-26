@@ -1,12 +1,14 @@
-var $ = require('jquery'),
-    _ = require('underscore'),
-    Backbone = require('backbone'),
-    Collection = require('../collections/episodes'),
-    episode = require('../views/episode'),
-    EpisodePreview = require('../views/episode-preview');
+'use strict';
+
+var $ = require('jquery');
+var _ = require('underscore');
+var Backbone = require('backbone');
+var Collection = require('../collections/episodes');
+var episode = require('../views/episode');
+var EpisodePreview = require('../views/episode-preview');
 
 module.exports = Backbone.View.extend({
-  initialize: function( options ) {
+  initialize: function() {
     var _this = this;
     this.collection = new Collection();
     this.collection.fetch().done(function() {

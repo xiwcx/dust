@@ -1,6 +1,9 @@
-var express = require('express'),
-    app = express(),
-    subdomain = require('express-subdomain');
+/* eslint-env node */
+
+'use strict';
+
+var express = require('express');
+var app = express();
 
 // Server Configuration
 
@@ -37,7 +40,7 @@ app
 
 // 404
 
-app.use(function(req, res, next){
+app.use(function(req, res){
   res.status(404);
 
   // respond with html page
@@ -64,5 +67,4 @@ var server = app.listen(3003, function () {
   var port = server.address().port;
 
   console.log('Example app listening at http://%s:%s', host, port);
-
 });

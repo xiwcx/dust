@@ -1,3 +1,5 @@
-var gulp        = require('gulp');
+'use strict';
 
-gulp.task('test', ['jshint']);
+var gulp = require('gulp');
+
+gulp.task('test', ['eslint']);

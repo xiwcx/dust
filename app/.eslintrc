@@ -1,0 +1,20 @@
+---
+
+env:
+  node: false
+  browser: true
+
+globals:
+  SC: true
+  soundManager: true
+  # browserify exceptions
+  require: true
+  module: true
+
+rules:
+  camelcase: 2
+  no-underscore-dangle: 0
+  no-unused-vars:
+    - 2
+    -
+      vars: "locals"

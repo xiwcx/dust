@@ -1,6 +1,14 @@
-var Backbone = require('backbone'),
-    $ = require('jquery'),
-    Player = require('./views/player');
+'use strict';
+
+var $ = require('jquery');
+var Backbone = require('backbone');
+var Player = require('./views/player');
+var Router = require('./router');
+
+/*eslint-disable*/
+var player = new Player({el: '#JS_player'});
+var router = new Router();
+/*eslint-enable*/
 
 Backbone.$ = $;
 
@@ -10,9 +18,5 @@ $(document).on('click', 'a[href^="/"]', function(e) {
   var href = $(e.currentTarget).attr('href');
   Backbone.history.navigate(href, { trigger: true });
 });
-
-var Router = require('./router'),
-    router = new Router(),
-    player = new Player({el: "#JS_player"});
 
 Backbone.history.start({pushState: true});

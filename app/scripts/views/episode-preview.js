@@ -1,13 +1,15 @@
-var $ = require('jquery'),
-    _ = require('underscore'),
-    Backbone = require('backbone'),
-    Handlebars = require('handlebars'),
-    template = require('../../templates/episode-preview.hbs');
+'use strict';
+
+var $ = require('jquery');
+var _ = require('underscore');
+var Backbone = require('backbone');
+var Handlebars = require('handlebars');
+var template = require('../../templates/episode-preview.hbs');
 
 module.exports = Backbone.View.extend({
   tagName: 'li',
   events: {
-    "click .JS_initTrack": "initTrack"
+    'click .JS_initTrack': 'initTrack'
   },
 
   initialize: function( options ) {

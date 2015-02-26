@@ -1,9 +1,10 @@
-var $ = require('jquery'),
-    Backbone = require('backbone');
+'use strict';
+
+var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
   defaults: {
-    "streamingReady": false,
-    "paused": true
+    'streamingReady': false,
+    'paused': true
   }
 });

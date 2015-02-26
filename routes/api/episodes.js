@@ -1,8 +1,12 @@
-var express = require('express'),
-    router = express.Router(),
-    mongoskin = require('mongoskin'),
-    _ = require('lodash'),
-    db = mongoskin.db('mongodb://localhost:27017/dust', {safe:true});
+'use strict';
+
+var express = require('express');
+/*eslint-disable*/
+var router = express.Router();
+/*eslint-disable*/
+var mongoskin = require('mongoskin');
+var _ = require('lodash');
+var db = mongoskin.db('mongodb://localhost:27017/dust', {safe: true});
 
 // The base episode route allows for collections of episodes to be returned
 // Both a `limit` and `skip` parameter can be specified. If not parameters
@@ -10,7 +14,7 @@ var express = require('express'),
 
 router.route( '/' )
   .get( function(req, res) {
-    db.collection( "episodes" )
+    db.collection( 'episodes' )
       .find( {}, { _id: 0 } )
       .sort( { num: -1 } )
       .limit( parseInt( req.query.limit ? req.query.limit : 0, 10 ) )
@@ -27,7 +31,7 @@ router.route('/:id')
     var episodeNum = parseInt( req.params.id, 10 );
 
     if ( !_.isNaN( episodeNum ) && _.isNumber( episodeNum ) ) {
-      db.collection( "episodes" )
+      db.collection( 'episodes' )
         .findOne( { num: episodeNum }, function(e, episode) {
           if( !episode ) {
             res.status( 404 ).json( 'Episode does not exist' );

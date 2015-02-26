@@ -1,9 +1,11 @@
-var babelify = require("babelify"),
-    browserify = require('browserify'),
-    gulp = require('gulp'),
-    hbsfy = require('hbsfy'),
-    rename = require("gulp-rename"),
-    source = require('vinyl-source-stream');
+'use strict';
+
+var babelify = require('babelify');
+var browserify = require('browserify');
+var gulp = require('gulp');
+var hbsfy = require('hbsfy');
+var rename = require('gulp-rename');
+var source = require('vinyl-source-stream');
 
 // using vinyl-source-stream:
 gulp.task('browserify', function() {
