@@ -23,7 +23,7 @@ module.exports = Backbone.View.extend({
   },
 
   initTrack: function() {
-    Backbone.trigger( 'initTrack', this.model.attributes.scTrackID );
+    Backbone.trigger( 'initTrack', this.model.get( 'scTrackID' ) );
   },
 
   render: function(){

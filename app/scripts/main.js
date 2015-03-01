@@ -6,7 +6,7 @@ var Player = require('./views/player');
 var Router = require('./router');
 
 /*eslint-disable*/
-var player = new Player({el: '#JS_player'});
+var player = new Player();
 var router = new Router();
 /*eslint-enable*/
 
