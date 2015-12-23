@@ -4,7 +4,6 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 var gulp = require('gulp');
 var hbsfy = require('hbsfy');
-var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 
 // using vinyl-source-stream:
@@ -14,6 +13,5 @@ gulp.task('browserify', function() {
     .transform(babelify)
     .bundle()
     .pipe(source('main.js'))
-    .pipe(rename('scripts.js'))
     .pipe(gulp.dest('public'));
 });
